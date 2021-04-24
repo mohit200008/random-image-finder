@@ -1,9 +1,17 @@
 import React from 'react';
-import AppBar from 'material-ui/AppBar';
+import { AppBar,makeStyles,Toolbar,Typography }  from '@material-ui/core';
+import CollectionsIcon from '@material-ui/icons/Collections';
+
 
 function navbar() {
     return (
-        <AppBar title="Random Image Finder"/>
+        <AppBar>
+          <Toolbar>
+             <CollectionsIcon />
+             <Typography variant="h4" style={{marginLeft : 10 }}>Image Finder</Typography> 
+          </Toolbar>
+        
+        </AppBar>
     )
 }
 

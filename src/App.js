@@ -1,15 +1,15 @@
 import React from 'react';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+
 import Navbar from './components/navbar/navbar';
+
 import './App.css';
 
 function App() {
   return (
-    <MuiThemeProvider>
-      <div>
-        <Navbar />
-      </div>
-    </MuiThemeProvider>
+    <div className="App">
+      <Navbar />
+    
+    </div>
   );
 }
 
