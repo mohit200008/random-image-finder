@@ -3,9 +3,16 @@ import { AppBar,makeStyles,Toolbar,Typography }  from '@material-ui/core';
 import CollectionsIcon from '@material-ui/icons/Collections';
 
 
-function navbar() {
+const useStyles = makeStyles({
+    component:{
+        background: '#445A6F'
+    }
+})
+
+const Navbar=()=> {
+    const classes= useStyles();
     return (
-        <AppBar>
+        <AppBar className={classes.component} position="static">
           <Toolbar>
              <CollectionsIcon />
              <Typography variant="h4" style={{marginLeft : 10 }}>Image Finder</Typography> 
@@ -15,4 +22,4 @@ function navbar() {
     )
 }
 
-export default navbar
+export default Navbar

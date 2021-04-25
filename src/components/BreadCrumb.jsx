@@ -1,13 +1,22 @@
-import React from 'react';
-import { Box,TextField } from '@material-ui/core';
+import { Box,makeStyles,TextField } from '@material-ui/core';
 
-function BreadCrumb() {
+const useStyles=makeStyles(theme => ({
+    component: {
+        background: '#F0F8FF',
+        '& > *' : {
+            margin:theme.spacing(1)
+        }
+    }
+}))
+
+const BreadCrumb = () => {
+    const classes= useStyles();
     return (
-        <Box>
-          <TextField label="Search Images"/>
-          <TextField label="Number of Images"/>
+        <Box m={1} className= {classes.component}>
+          <TextField label="Search Images" />
+          <TextField label="Number of Images" />
         </Box>
     )
 }
 
-export default BreadCrumb
+export default BreadCrumb;
