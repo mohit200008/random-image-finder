@@ -4,21 +4,42 @@ import Navbar from './components/navbar';
 import BreadCrumb from './components/BreadCrumb';
 import { getImages } from './service/api';
 import Images from './components/images.jsx';
+import SnackBar from './components/Snackbar';
 import './App.css';
 
 function App() {
   const [data,setData]= useState([]);
+  const [count, setCount]= useState(15);
+  const [text,setText]= useState('mountains');
+  const [open,toggleSnack]= useState(false);
   useEffect(()=> {
-    getImages().then(response => {
+
+    if(count<3 || count>200){
+      toggleSnack(true);
+      return ;
+    }
+
+
+    getImages(text,count).then(response => {
       setData(response.data.hits);
       console.log(response.data.hits);
     })
-  },[])
+  },[text,count])
+
+  const onTextChange = (text) => {
+    console.log(text);
+    setText(text);
+  }
+  const onCountChange = (count) => {
+    setCount(count);
+    
+  }
   return (
     <Box>
       <Navbar />
-      <BreadCrumb />
+      <BreadCrumb onTextChange={onTextChange} onCountChange={onCountChange} />
       <Images data={data}/>
+      <SnackBar open={open} toggleSnack={toggleSnack}/>
   
     
     </Box>

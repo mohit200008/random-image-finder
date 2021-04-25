@@ -1,13 +1,18 @@
 
 
+import { Grid } from '@material-ui/core';
 import Image from './image';
 
 const Images = ({ data }) => {
     console.log('data',data);
     return (
-        data.map(image => {
-            return <Image image={image}/>
-        })
+        <Grid container >
+        {
+             data.map(image => (
+             <Grid key={image.id} xs={3} item><Image image={image}/></Grid>
+             ))
+        }
+        </Grid>
     )
 }
 

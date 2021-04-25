@@ -4,7 +4,8 @@ import { Card, makeStyles } from '@material-ui/core';
 const useStyles = makeStyles({
     image: {
         height:300,
-        width:'100%'
+        width:'100%',
+        objectFit: 'cover'
     }
 })
 
